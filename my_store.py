@@ -26,16 +26,16 @@ class Store:
 
     def showcase(self, product=None):
         if product:
-            print('Название магазина: %s' % self.title)
-            print('Количество товара %s: %s штук, стоимость: %s. '
-                  'Суммарная стоимость: %s' % (product.title.title(), self.products[product], product.price,
-                                               product.price * self.products[product]))
+            print(f'Название магазина: {self.title}')
+            print(
+                f'Количество товара {product.title.title()}: {self.products[product]} штук, стоимость: {product.price} '
+                f'Суммарная стоимость: {product.price * self.products[product]}')
 
         else:
-            print('Название магазина: %s' % self.title)
+            print(f'Название магазина: {self.title}')
             for key, value in self.products.items():
-                print('Количество товара %s: %s штук, стоимость: %s. '
-                      'Суммарная стоимость: %s' % (key.title.title(), value, key.price, key.price * value))
+                print(f'Количество товара {key.title.title()}: {value} штук, стоимость: {key.price} '
+                      f'Суммарная стоимость: {key.price * value}')
 
 
 class Manager:
@@ -103,4 +103,4 @@ class Manager:
 
 
 if __name__ == '__main__':
-    Manager.create_add_to_store_product()
+    Manager.load_data_from_file()
