@@ -56,7 +56,7 @@ class Manager:
     @staticmethod
     def load_data_from_file():
         if not Manager.store:
-            with open('my_store.txt', 'r') as r:
+            with open('my_store.json', 'r') as r:
                 data_from_json = json.load(r)
             Manager.store = Store(data_from_json['store_title'])
             for product in data_from_json['products']:
