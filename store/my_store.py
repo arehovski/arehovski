@@ -1,15 +1,24 @@
 class Store:
+    """
+    Returns object of store.
+    """
     def __init__(self, title):
         self.title = title
         self.products = {}
 
     def add_product(self, product, number_of_products=1):
+        """
+        Adds product object into store dict.
+        """
         if product in self.products:
             self.products[product] += number_of_products
         else:
             self.products[product] = number_of_products
 
     def showcase(self, product=None):
+        """
+        Shows info about store and products.
+        """
         if product:
             print(f'Название магазина: {self.title}')
             print(
