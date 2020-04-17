@@ -1,22 +1,8 @@
+from dict_of_numbers import dict_of_numbers
+
+
 def field(i, j):
-    return [[' ' for n in range(j)] for m in range(i)]
-
-
-dict_of_numbers = {'0': [['', '', '', 0, 0, '', '', '', ],
-                         ['', '', 0, '', '', 0, '', '', ],
-                         ['', 0, '', '', '', '', 0, '', ],
-                         ['', 0, '', '', '', '', 0, '', ],
-                         ['', 0, '', '', '', '', 0, '', ],
-                         ['', '', 0, '', '', 0, '', '', ],
-                         ['', '', '', 0, 0, '', '', '', ]],
-
-                   '1': [['', '', '', '', 1, '', '', '', ],
-                         ['', '', '', 1, 1, '', '', '', ],
-                         ['', '', 1, '', 1, '', '', '', ],
-                         ['', 1, '', '', 1, '', '', '', ],
-                         ['', '', '', '', 1, '', '', '', ],
-                         ['', '', '', '', 1, '', '', '', ],
-                         ['', '', '', '', 1, '', '', '', ]]}
+    return [['.' for n in range(j)] for m in range(i)]
 
 
 def str_num(str_num, dct):
@@ -27,13 +13,13 @@ def str_num(str_num, dct):
             for j in range(len(dct[num][i])):
                 if isinstance(dct[num][i][j], int):
                     fld[i][j + n] = dct[num][i][j]
-        n += len(dct['0'])
+        n += len(dct[num][i])
     return fld
 
 
-fld = str_num('0110110', dict_of_numbers)
-
-for i in fld:
-    for j in i:
-        print(j, end=' ')
-    print()
+if __name__ == '__main__':
+    fld = str_num('7548963120', dict_of_numbers)
+    for row in fld:
+        for i in row:
+            print(i, end=' ')
+        print()
