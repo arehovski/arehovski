@@ -10,10 +10,10 @@ class BigNumbers:
         self.background = background
         self.mark = mark
         self.space = space
-        self.field = [[self.background + self.space for n in range(self.width)] for m in range(self.height)]
+        self.field = [[self.background for n in range(self.width)] for m in range(self.height)]
 
     def put_mark(self, i, j):
-        self.field[i][j] = self.mark + self.space
+        self.field[i][j] = self.mark
 
     def string_to_plane(self, some_str):
         n = 0
@@ -22,7 +22,7 @@ class BigNumbers:
                 for j in range(len(self.dct[num][i])):
                     if isinstance(self.dct[num][i][j], int):
                         try:
-                            self.field[i][j + n] = self.mark + self.space
+                            self.field[i][j + n] = self.mark
                         except IndexError:
                             break
             n += len(self.dct[num][i])
@@ -31,7 +31,7 @@ class BigNumbers:
         if not reverse:
             for row in self.field:
                 for i in row:
-                    print(i, end='')
+                    print(i, end=self.space)
                 print()
         else:
             fld = self.field.copy()
@@ -43,7 +43,7 @@ class BigNumbers:
                         row[i] = row[i].replace(self.mark, self.background)
             for row in fld:
                 for i in row:
-                    print(i, end='')
+                    print(i, end=self.space)
                 print()
 
 
