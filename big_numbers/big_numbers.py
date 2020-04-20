@@ -4,6 +4,7 @@ from dict_of_numbers import dict_of_numbers
 class BigNumbers:
 
     def __init__(self, some_dict, height, width, background=' ', mark='*', space=' '):
+        assert len(background) == len(mark), 'Background and mark must have the same length.'
         self.dct = some_dict
         self.height = height
         self.width = width
@@ -30,9 +31,7 @@ class BigNumbers:
     def print_field(self, reverse=False):
         if not reverse:
             for row in self.field:
-                for i in row:
-                    print(i, end=self.space)
-                print()
+                print(self.space.join(row))
         else:
             fld = self.field.copy()
             for row in fld:
@@ -42,13 +41,11 @@ class BigNumbers:
                     elif row[i].startswith(self.mark):
                         row[i] = row[i].replace(self.mark, self.background)
             for row in fld:
-                for i in row:
-                    print(i, end=self.space)
-                print()
+                print(self.space.join(row))
 
 
 if __name__ == '__main__':
-    test = BigNumbers(dict_of_numbers, 10, 37)
+    test = BigNumbers(dict_of_numbers, 10, 40, background='   ', mark='***', space='')
     test.put_mark(0, 0)
     test.put_mark(8, 5)
     test.string_to_plane('092637')
