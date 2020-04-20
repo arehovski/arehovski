@@ -54,3 +54,4 @@ if __name__ == '__main__':
     test.put_mark(8, 5)
     test.string_to_plane('092637')
     test.print_field(reverse=False)
+
