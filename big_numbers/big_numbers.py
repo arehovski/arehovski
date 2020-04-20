@@ -19,14 +19,18 @@ class BigNumbers:
     def string_to_plane(self, some_str):
         n = 0
         for num in some_str:
-            for i in range(len(self.dct[num])):
-                for j in range(len(self.dct[num][i])):
-                    if isinstance(self.dct[num][i][j], int):
-                        try:
-                            self.field[i][j + n] = self.mark
-                        except IndexError:
-                            break
-            n += len(self.dct[num][i])
+            num = self.dct.get(num)
+            if num:
+                for i in range(len(num)):
+                    for j in range(len(num[i])):
+                        if isinstance(num[i][j], int):
+                            try:
+                                self.field[i][j + n] = self.mark
+                            except IndexError:
+                                break
+                n += len(num[i])
+            else:
+                raise TypeError(f"Parameter '{some_str}' contents something except numbers.")
 
     def print_field(self, reverse=False):
         if not reverse:
